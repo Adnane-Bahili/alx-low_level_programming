@@ -1,4 +1,8 @@
 #include<stdio.h>
+/**
+* main - Print the size of each variable
+* Return: 0 prints sizes
+*/
 int main(void)
 {
 	char c;
