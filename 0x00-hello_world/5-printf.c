@@ -1,8 +1,8 @@
 #include<stdio.h>
 /**
- * Description: 'print with proper grammar, but the outcome is a piece of art,'
- * Return: Always 0 (Success)
- */
+* main - Print using printf
+* Return: 0 print phrase
+*/
 int main(void)
 {
 	printf("with proper grammar, but the outcome is a piece of art,\n");
