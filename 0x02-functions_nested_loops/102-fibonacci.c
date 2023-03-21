@@ -14,7 +14,7 @@ int main(void)
 	while (count <= 50)
 	{
 		k =  j + i;
-		c++;
+		count++;
 		printf("%ld", k);
 
 		if (count <= 50)
