@@ -9,7 +9,7 @@ int main(void)
 	long int i  = 0;
 	long int j  = 1;
 	long int k;
-	long int c = 1;
+	long int count = 1;
 
 	while (count <= 50)
 	{
