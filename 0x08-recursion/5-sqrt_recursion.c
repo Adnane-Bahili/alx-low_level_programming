@@ -10,7 +10,7 @@ int _sqrt_recursion(int n)
 {
 	return (nat_sqr_root(1, n));
 }
- /**
+/**
  * nat_sqr_root - checks the input number from i to the j
  * @i: number to square
  * @j: j number to check
