@@ -6,7 +6,7 @@
 * @argc: argument counter
 * @argv: arguments array pointer
 *
-* Return: 	0 if success
+* Return:	0 if success
 *		1 if it does not receive two argument
 */
 int main(int argc, char *argv[])
