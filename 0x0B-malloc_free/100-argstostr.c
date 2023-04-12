@@ -5,7 +5,7 @@
  * @ac: arguments count
  * @av: arguments pointer
  *
- * Return: pointer to new cing
+ * Return: 	pointer to new cing
  *		NULL if it fails, or if (ac == 0 || av == NULL)
  */
 char *argstostr(int ac, char **av)
@@ -18,8 +18,8 @@ char *argstostr(int ac, char **av)
 	for (i = 0; i < ac; i++)
 	{
 		for (j = 0; av[i][j] != '\0'; j++)
-			;
-		l += j + 1;
+			l++;
+		l++;
 	}
 	s = malloc(l + 1);
 	if (s == 0)
