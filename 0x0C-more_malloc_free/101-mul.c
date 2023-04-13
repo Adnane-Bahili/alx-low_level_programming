@@ -79,7 +79,7 @@ int numbersonly(char *i)
 {
 	while (*i)
 	{
-		if (*i < 48 || *i > 57)
+		if (*i < '0' || *i > '9')
 			return (0);
 		i++;
 	}
