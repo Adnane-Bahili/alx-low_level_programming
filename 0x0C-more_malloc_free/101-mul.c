@@ -1,4 +1,6 @@
+#include <stdlib.h>
 #include "stdio.h"
+#include "main.h"
 void *_calloc(unsigned int nmemb, unsigned int size)
 char *_memset(char *s, char b, unsigned int n)
 int _strlen(char *s)
