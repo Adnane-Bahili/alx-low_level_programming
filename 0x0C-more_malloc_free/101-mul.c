@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "main.h"
 
-
-
 int is_number(char *s)
 {
     int i;
@@ -15,33 +13,27 @@ int is_number(char *s)
     return (1);
 }
 
-int main(int ac, char *av[])
+void error()
 {
-    int len1 = 0, len2 = 0, *result;
-    char *s1, *s2;
-    int digit1, digit2, carry;
-    int checker = 0;
+    printf("Error\n");
+    exit(98);
+}
+
+int str_len(char *str)
+{
+    int i = 0;
+    while (str[i])
+        i++;
+    return (i);
+}
+
+void compute_mult(int len1, int len2, char *s1, char *s2, int *result)
+{
+    int carry = 0;
+    int digit1 = 0;
+    int digit2 = 0;
     int i, j;
 
-    if (ac != 3)
-    {
-        printf("Error\n");
-        exit(98);
-    }
-    if (!(is_number(av[1]) && is_number(av[2])))
-    {
-        printf("Error\n");
-        exit(98);
-    }
-    s1 = av[1];
-    s2 = av[2];
-
-    while (s1[len1])
-        len1++;
-    while (s2[len2])
-        len2++;
-
-    result = malloc(sizeof(int) * (len1 + len2 + 1));
     for (i = 0; i < len1 + len2 + 1; i++)
         result[i] = 0;
 
@@ -59,6 +51,27 @@ int main(int ac, char *av[])
         if (carry > 0)
             result[i] = carry;
     }
+}
+
+int main(int ac, char *av[])
+{
+    int len1 = 0, len2 = 0, *result;
+    char *s1, *s2;
+    int checker = 0;
+    int i;
+
+    if (ac != 3)
+        error();
+    if (!(is_number(av[1]) && is_number(av[2])))
+        error();
+    s1 = av[1];
+    s2 = av[2];
+    len1 = str_len(s1);
+    len2 = str_len(s2);
+    result = malloc(sizeof(int) * (len1 + len2 + 1));
+    for (i = 0; i < len1 + len2 + 1; i++)
+        result[i] = 0;
+    compute_mult(len1, len2, s1, s2, result);
     for (i = 0; i < len1 + len2; i++)
     {
         if (result[i])
