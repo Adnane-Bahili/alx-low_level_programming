@@ -25,12 +25,12 @@ int main(int ac, char *av[])
 
     if (ac != 3)
     {
-        printf("Error");
+        printf("Error\n");
         exit(98);
     }
     if (!(is_number(av[1]) && is_number(av[2])))
     {
-        printf("Error");
+        printf("Error\n");
         exit(98);
     }
     s1 = av[1];
