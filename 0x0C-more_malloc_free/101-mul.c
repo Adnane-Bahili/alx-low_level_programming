@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+#include <stdilb>
 #include <string.h>
 
 /**
@@ -92,7 +93,7 @@ int main(int argc, char **argv)
         printf("Error\n"), exit(98);
 
     k = _strlen(argv[1]) + _strlen(argv[2]);
-    c = big_multiply(argv[1], argv[2]);
+    c = multiply(argv[1], argv[2]);
     j = 0;
     i = 0;
     while (j < k)
