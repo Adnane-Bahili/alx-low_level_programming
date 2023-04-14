@@ -1,13 +1,13 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include <string.h>
 #include "main.h"
 
 
 
 int is_number(char *s)
 {
-    for (int i = 0; s[i]; i++)
+    int i;
+    for (i = 0; s[i]; i++)
     {
         if (!(s[i] >= '0' && s[i] <= '9'))
             return (0);
