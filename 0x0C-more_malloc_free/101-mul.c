@@ -1,13 +1,9 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include "main.h"
+#include "stdio.h"
 void *_calloc(unsigned int nmemb, unsigned int size)
 char *_memset(char *s, char b, unsigned int n)
 int _strlen(char *s)
 int Numbers(char *c)
 void multiply(char *a, char *b)
-
-
 /**
  * main - multiplies two positive numbers
  * @argc: argument count
@@ -16,67 +12,66 @@ void multiply(char *a, char *b)
  */
 int main(int argc, char *argv[])
 {
-	char *a = argv[1];
-	char *b = argv[2];
+	char *f = argv[1];
+	char *s = argv[2];
 
-	if (argc != 3 || !Numbers(a) || !Numbers(b))
+	if (argc != 3 || !onlyNumbers(f) || !onlyNumbers(s))
 	{
 		printf("Error\n");
 		exit(98);
 	}
-	if (*a == 48 || *b == 48)
+	if (*f == 48 || *s == 48)
 		printf("0\n");
 	else
-		multiply(b, a);
+		multiply(s, f);
 	return (0);
 }
 
 /**
- * multiply - multiplies 
- * @a: 1st
- * @b: 2nd
+ * multiply - multiplies two numbers and displays it
+ * @f: first "number"
+ * @s: second "number"
  */
-void multiply(char *a, char *b)
+void multiply(char *f, char *s)
 {
-	int i, l1, l2, total, adigit, bdigit, result = 0, t;
-	int *p;
+	int i, len1, len2, total, fdigit, sdigit, res = 0, tmp;
+	int *ptr;
 
-	l1 = _strlen(a);
-	l2 = _strlen(b);
-	t = l2;
-	total = l1 + l2;
-	p = _calloc(sizeof(int), (l1 + l2));
-	for (l1--; l1 >= 0; l1--)
+	len1 = _strlen(f);
+	len2 = _strlen(s);
+	tmp = len2;
+	total = len1 + len2;
+	ptr = _calloc(sizeof(int), (len1 + len2));
+	for (len1--; len1 >= 0; len1--)
 	{
-		adigit = a[l1] - '0';
-		result = 0;
-		l2 = t;
-		for (l2--; l2 >= 0; l2--)
+		fdigit = f[len1] - '0';
+		res = 0;
+		len2 = tmp;
+		for (len2--; len2 >= 0; len2--)
 		{
-			bdigit = b[l2] - '0';
-			result += p[l2 + l1 + 1] + (adigit * bdigit);
-			p[l1 + l2 + 1] = result % 10;
-			result /= 10;
+			sdigit = s[len2] - '0';
+			res += ptr[len2 + len1 + 1] + (fdigit * sdigit);
+			ptr[len1 + len2 + 1] = res % 10;
+			res /= 10;
 		}
-		if (result)
-			p[l1 + l2 + 1] = result % 10;
+		if (res)
+			ptr[len1 + len2 + 1] = res % 10;
 	}
-	while (*p == 0)
+	while (*ptr == 0)
 	{
-		p++;
+		ptr++;
 		total--;
 	}
 	for (i = 0; i < total; i++)
-		printf("%i", p[i]);
+		printf("%i", ptr[i]);
 	printf("\n");
 }
 /**
- * Numbers - determines
- * @c: input 
- * Return: 0 if false
- * 1 if true
+ * onlyNumbers - determines if string has only numbers
+ * @c: input string
+ * Return: 0 if false, 1 if true
  */
-int Numbers(char *c)
+int onlyNumbers(char *c)
 {
 	while (*c)
 	{
@@ -88,8 +83,8 @@ int Numbers(char *c)
 }
 
 /**
- * _strlen - returns 
- * @s: s
+ * _strlen - returns the length of a string
+ * @s: string s
  * Return: length of string
  */
 int _strlen(char *s)
@@ -102,36 +97,36 @@ int _strlen(char *s)
 }
 
 /**
- * _memset - fills
- * @s: mem area
- * @b: const byte
- * @n: bytes of mem area
- * Return: pointer 
+ * _memset - fills memory with a constant byte
+ * @s: memory area
+ * @b: constant byte
+ * @n: bytes of the memory area
+ * Return: pointer to the memory area s
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	char *p = s;
+	char *ptr = s;
 
 	while (n--)
 		*s++ = b;
-	return (p);
+	return (ptr);
 }
 
 /**
- * _calloc - allocates 
- * @nmemb: elements of pointer
- * @size: size 
- * Return: pointer 
+ * _calloc - allocates memory for an array, using malloc
+ * @nmemb: number of elements of pointer
+ * @size: size of each member
+ * Return: pointer of allocated memory
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	void *p;
+	void *ptr;
 
 	if (!nmemb || !size)
 		return (NULL);
-	p = malloc(size * nmemb);
-	if (!p)
+	ptr = malloc(size * nmemb);
+	if (!ptr)
 		return (NULL);
-	_memset(p, 0, size * nmemb);
-	return (p);
+	_memset(ptr, 0, size * nmemb);
+	return (ptr);
 }
