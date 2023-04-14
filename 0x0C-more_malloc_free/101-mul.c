@@ -79,7 +79,7 @@ int is_digit(char *s)
  * _strl - returns the string lgth
  * @s: string to evaluate
  *
- * Return: string lgth
+ * Return: string length
  */
 int _strl(char *s)
 {
