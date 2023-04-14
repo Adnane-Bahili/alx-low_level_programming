@@ -5,6 +5,7 @@
 int is_number(char *s)
 {
     int i;
+    
     for (i = 0; s[i]; i++)
     {
         if (!(s[i] >= '0' && s[i] <= '9'))
@@ -13,7 +14,7 @@ int is_number(char *s)
     return (1);
 }
 
-void error()
+void error(void)
 {
     printf("Error\n");
     exit(98);
@@ -22,6 +23,7 @@ void error()
 int str_len(char *str)
 {
     int i = 0;
+
     while (str[i])
         i++;
     return (i);
