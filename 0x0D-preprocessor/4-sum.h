@@ -5,4 +5,4 @@
 #define SUM(i, j) ((i) + (j))
 
 
-#endif // _4_SUM_H
+#endif /* _4_SUM_H */
