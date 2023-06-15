@@ -87,7 +87,7 @@ void clss_prnt(unsigned char *e_ident)
 }
 /**
  * data_prnt - prints an ELF header's data
- * @e_ident: ELF data pointer
+ * @e_ident: ELF class pointer
  *
  * Return: void
  */
@@ -131,7 +131,7 @@ void vrs_prnt(unsigned char *e_ident)
 }
 /**
  * os_abi_prnt - prints an ELF header's OS/ABI
- * @e_ident: ELF OS/ABI pointer
+ * @e_ident: ELF version pointer
  */
 void os_abi_prnt(unsigned char *e_ident)
 {
@@ -186,7 +186,7 @@ void abi_prnt(unsigned char *e_ident)
 /**
  * type_prnt - prints an ELF header's type
  * @e_type: ELF type
- * @e_ident: ELF type pointer
+ * @e_ident: ELF class pointer
  */
 void type_prnt(unsigned int e_type, unsigned char *e_ident)
 {
@@ -217,7 +217,7 @@ void type_prnt(unsigned int e_type, unsigned char *e_ident)
 /**
  * ent_prnt - prints an ELF header's entry
  * @e_entry: ELF entry
- * @e_ident: ELF entry pointer
+ * @e_ident: ELF class pointer
  */
 void ent_prnt(unsigned long int e_entry, unsigned char *e_ident)
 {
